@@ -1,12 +1,32 @@
+/* ================================
+   HEADER
+================================ */
+/* Estilos relacionados con el header, logo, menú y botón de contacto */
+
+/* ================================
+   CARRUSEL
+================================ */
+/* Estilos del carrusel, imágenes y superposición de texto */
+
+/* ================================
+   MEDIA QUERIES (si aplica)
+================================ */
+/* Reglas responsivas para diferentes tamaños de pantalla */
+
+/* ================================
+   FOOTER
+================================ */
+/* Estilos relacionados con el pie de página */
+
+/* Insertar el contenido completo manteniendo la estructura original */
 /* Definir variables para los colores */
 :root {
     --color-morado: #6a1b9a;  /* Morado intenso */
     --color-violet: #8e44ad;  /* Violeta vibrante */
     --color-negro: #1c1c1c;  /* Negro suave */
-    --color-blanco: #ffffff; /* Blanco cálido */
+    --color-blanco: #f9f9f9; /* Blanco cálido */
     --color-texto: #2c2c2c;  /* Texto gris oscuro */
 }
-
 
 /* Reset y box-sizing */
 * {
@@ -28,18 +48,9 @@
 body {
     font-family: 'Poppins', Arial, sans-serif;
     color: var(--color-texto);
-    background-color: #e6e6e6;
+    background-color: #ffffff;
     height: 100%;
     overflow-x: hidden;
-}
-
-@keyframes gradient-animation {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
 }
 
 /* Header */
@@ -114,21 +125,20 @@ header .menu-item a:hover {
     outline-offset: -2px; /* Se ajusta para evitar un cambio visual excesivo */
 }
 
-/* Subpestañas (submenu) */
 header .submenu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%); /* Ajusta para que el centro del submenu se alinee con el centro del menu-item */
-    width: 100%;
+    top: 100%; /* Posiciona el submenú justo debajo del menú principal */
+    left: 0; /* Alinea el submenú con el borde izquierdo del elemento padre */
+    width: auto; /* Ajusta el ancho según el contenido */
     background-color: var(--color-blanco);
     padding: 0.5rem;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    list-style: none; /* Eliminar viñetas */
-    margin: 0; /* Eliminar margen */
-    text-align: center; /* Centrar texto */
+    list-style: none;
+    margin: 0;
+    text-align: left; /* Alinea el texto a la izquierda */
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
 }
 
 header .submenu li {
@@ -136,7 +146,7 @@ header .submenu li {
 }
 
 header .submenu li a {
-    color: #var(--color-negro);
+    color: var(--color-negro);
     text-decoration: none;
     font-size: 1rem;
     padding: 0.3rem 0.5rem;
@@ -156,10 +166,136 @@ header .menu-item:hover .submenu {
     display: block;
 }
 
+/* Align logo and menu button */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+header .contact-btn:hover {
+    background-color: var(--color-violet);
+}
+
 /* Contenedor del menú */
 .navbar {
     position: relative;
     z-index: 10; /* Asegúrate de que el contenedor tenga posición relativa */
+}
+
+/* Mobile menu styles */
+.mobile-menu-button {
+    display: none;
+    background: var(--color-morado);
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    border-radius: 5px;
+}
+
+.mobile-navbar {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-blanco);
+    padding: 1rem;
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    width: 80%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.mobile-navbar.active {
+    display: flex;
+}
+
+.mobile-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu .menu-item {
+    margin: 0.5rem 0;
+}
+
+.mobile-menu .menu-item a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.mobile-menu .menu-item a:hover {
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
+    border-radius: 4px;
+}
+
+/* Ocultar imágenes móviles por defecto */
+.mobile-images {
+    display: none;
+}
+
+/* Adjust mobile menu button size and positioning */
+.mobile-menu-button {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background: var(--color-morado);
+    color: var(--color-blanco);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mobile-menu-button:hover {
+    background-color: var(--color-violet);
+}
+
+/* En dispositivos móviles, mostrar imágenes móviles y ocultar imágenes de escritorio */
+@media (max-width: 768px) {
+    .desktop-images {
+        display: none;
+    }
+
+    .mobile-images {
+        display: block;
+    }
+}
+
+/* Only show the mobile menu button on small screens */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+    
+    .navbar {
+        display: none;
+    }
+}
+
+/* Mostrar imágenes de escritorio por defecto */
+.desktop-images {
+    display: block;
+}
+
+/* Center the contact button below */
+.contact-btn {
+    display: block;
+    margin: 1rem auto;
 }
 
 /* Estilo para el menú desplegable */
@@ -177,8 +313,14 @@ header .menu-item:hover .submenu {
 }
 
 /* Botón de contacto */
+.contact-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
 
-header .contact-btn {
+.contact-btn {
     background-color: var(--color-morado);
     color: var(--color-blanco);
     padding: 0.5rem 1rem;
@@ -190,52 +332,38 @@ header .contact-btn {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-left: 1rem;
 }
 
-header .contact-btn:hover {
+.contact-btn:hover {
     background-color: var(--color-violet);
 }
 
-/* Media Queries para ajustar el diseño en pantallas pequeñas */
-@media (max-width: 1024px) {
-    header {
-        flex-direction: column; /* Reorganiza el header en columnas */
-        align-items: flex-start;
-    }
-
-    header .menu {
-        justify-content: flex-start; /* Alinea el menú a la izquierda */
-    }
-
-    header .logo {
-        margin-bottom: 1rem; /* Espacio entre el logo y el menú */
-    }
-
-    header .contact-btn {
-        margin-top: 1rem;
-    }
+/* Ensure proper alignment for the mobile menu */
+.mobile-navbar {
+    margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-    header .logo {
-        font-size: 1.5rem; /* Reduce el tamaño del logo en pantallas muy pequeñas */
-    }
+/* Align logo and menu button vertically */
+.logo-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
-    header .menu-item a {
-        font-size: 0.9rem; /* Ajusta el tamaño de las pestañas */
-    }
-
-    header .contact-btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
+/* Adjust the header container for better overall alignment */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
 /* Hero Section */
 .hero {
     position: relative;
-    height: 35vh;
+    height: 40vh; /* Aumenta ligeramente la altura para un mejor diseño */
     background-image: url('images/index-images/baja-car.jpg');
     background-size: cover;
     background-position: center;
@@ -255,7 +383,7 @@ header .contact-btn:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4); /* Oscurece un poco más para destacar el texto */
     z-index: 1;
 }
 
@@ -263,47 +391,75 @@ header .contact-btn:hover {
     position: relative;
     z-index: 2;
     color: var(--color-blanco);
-    max-width: 80%;
-    padding: 4rem 2rem;
+    max-width: 70%; /* Reduce el ancho máximo para una mejor alineación */
+    padding: 2rem 1rem; /* Ajusta los paddings */
     text-align: center;
 }
 
-/* Efecto de brillo en los textos del Hero */
+/* Título del Hero Section */
 .hero-overlay h1 {
-    font-size: 4rem;
-    font-family: 'RACING HARD';
+    font-size: 3.5rem; /* Reduce ligeramente el tamaño */
+    font-family: 'RACING HARD', sans-serif;
     text-transform: uppercase;
     line-height: 1.2;
     font-weight: bold;
     color: var(--color-blanco);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6);
-    /*margin-bottom: 1.5rem;*/
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem; /* Añade un margen para separar del párrafo */
 }
 
+/* Descripción del Hero Section */
 .hero-overlay p {
-    font-family: 'Poppins', Arial, sans-serif;;
+    font-family: 'Poppins', Arial, sans-serif;
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Reduce ligeramente el tamaño para mejor proporción */
     color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    line-height: 1.5; /* Mejora la legibilidad */
 }
 
+/* Botón del Hero Section */
 .hero-button {
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 0.8rem 1.5rem; /* Ajusta el tamaño del botón */
     background-color: var(--color-morado);
     color: var(--color-blanco);
-    font-size: 1.2em;
+    font-size: 1rem; /* Reduce ligeramente el tamaño */
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
-    transition: background-color 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 1.5rem; /* Añade un margen superior para separar del texto */
 }
 
 .hero-button:hover {
     background-color: var(--color-violet);
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+@media (max-width: 768px) {
+    /* Título del Hero Section en móviles */
+    .hero-overlay h1 {
+        font-size: 2.5rem; /* Tamaño reducido para móviles */
+        font-family: 'RACING HARD', sans-serif;
+        text-transform: uppercase;
+        line-height: 1.1;
+        font-weight: bold;
+        color: var(--color-blanco);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+        margin-bottom: 0.8rem;
+    }
+
+    /* Descripción del Hero Section en móviles */
+    .hero-overlay p {
+        font-size: 1rem; /* Reducido para móviles */
+        font-family: 'Poppins', Arial, sans-serif;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        line-height: 1.4;
+    }
 }
 
 /* Baja SAE Section */
@@ -336,11 +492,36 @@ header .contact-btn:hover {
     gap: 2rem;
     position: relative;
     z-index: 2;
+    flex-wrap: wrap; /* Permite que el contenido se ajuste mejor en pantallas pequeñas */
 }
 
-/* Inversión de contenido para la segunda sección */
+/* Inversión de contenido para la sección reverse en escritorio */
 .baja-sae-content.reverse {
-    flex-direction: row;
+    flex-direction: row-reverse; /* En escritorio, mantiene el diseño invertido */
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .baja-sae-content.reverse {
+        flex-direction: column; /* Cambia a disposición normal en columna */
+        gap: 1.5rem; /* Espaciado entre texto e imagen */
+    }
+
+    .baja-sae-text {
+        order: 1; /* Asegura que el texto esté primero */
+        text-align: justify; /* Alineación del texto */
+    }
+
+    .baja-sae-image {
+        order: 2; /* Asegura que la imagen esté después del texto */
+        display: flex;
+        justify-content: center;
+    }
+
+    .baja-sae-image img {
+        max-width: 100%; /* La imagen ocupa todo el ancho disponible */
+        margin: 0 auto; /* Centra la imagen */
+    }
 }
 
 .baja-sae-text {
@@ -360,8 +541,8 @@ header .contact-btn:hover {
 
 /* Mejora del texto */
 .baja-sae-text p {
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 1.1rem; /* Ajuste de tamaño para mantener legibilidad */
+    line-height: 1.7; /* Espaciado uniforme entre líneas */
     text-align: justify;
     color: #333;
 }
@@ -382,6 +563,32 @@ header .contact-btn:hover {
 
 .baja-sae-image img:hover {
     transform: scale(1.05);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .baja-sae-content {
+        flex-direction: column; /* Cambia a disposición en columna */
+        gap: 1.5rem; /* Reduce el espacio entre texto e imagen */
+    }
+
+    .baja-sae-text {
+        text-align: justify; /* Asegura que el texto esté alineado correctamente */
+    }
+
+    .baja-sae-text h2 {
+        font-size: 1.5rem; /* Reduce el tamaño del título en móviles */
+    }
+
+    .baja-sae-text p {
+        font-size: 1rem; /* Reduce el tamaño del texto */
+        line-height: 1.5; /* Ajusta el espaciado para móviles */
+    }
+
+    .baja-sae-image img {
+        max-width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible */
+        margin: 0 auto; /* Centra la imagen */
+    }
 }
 
 /* Sección de 6 Bloques 

@@ -1,3 +1,62 @@
+
+/* ================================
+   HEAD - VARIABLES GLOBALES Y RESET
+================================ */
+:root {
+    --color-morado: #6a1b9a;
+    --color-violet: #8e44ad;
+    --color-negro: #1c1c1c;
+    --color-blanco: #f9f9f9;
+    --color-texto: #2c2c2c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+@font-face {
+  font-family: 'RACING HARD';
+  src: url('./fonts/RACING HARD.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ================================
+   BODY - CONFIGURACIONES GENERALES
+================================ */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--color-texto);
+    background-color: #ffffff;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* ================================
+   HEADER
+================================ */
+/* Estilos relacionados con el header, logo, menú y botón de contacto */
+
+/* ================================
+   CARRUSEL
+================================ */
+/* Estilos del carrusel, imágenes y superposición de texto */
+
+/* ================================
+   MEDIA QUERIES (si aplica)
+================================ */
+/* Reglas responsivas para diferentes tamaños de pantalla */
+
+/* ================================
+   FOOTER
+================================ */
+/* Estilos relacionados con el pie de página */
+
+/* Insertar el contenido completo manteniendo la estructura original */
 /* Definir variables para los colores */
 :root {
     --color-morado: #6a1b9a;  /* Morado intenso */
@@ -27,7 +86,7 @@
 body {
     font-family: 'Poppins', Arial, sans-serif;
     color: var(--color-texto);
-    background-color: #e6e6e6;
+    background-color: #ffffff;
     height: 100%;
     overflow-x: hidden;
 }
@@ -104,21 +163,20 @@ header .menu-item a:hover {
     outline-offset: -2px; /* Se ajusta para evitar un cambio visual excesivo */
 }
 
-/* Subpestañas (submenu) */
 header .submenu {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%); /* Ajusta para que el centro del submenu se alinee con el centro del menu-item */
-    width: 100%;
+    top: 100%; /* Posiciona el submenú justo debajo del menú principal */
+    left: 0; /* Alinea el submenú con el borde izquierdo del elemento padre */
+    width: auto; /* Ajusta el ancho según el contenido */
     background-color: var(--color-blanco);
     padding: 0.5rem;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    list-style: none; /* Eliminar viñetas */
-    margin: 0; /* Eliminar margen */
-    text-align: center; /* Centrar texto */
+    list-style: none;
+    margin: 0;
+    text-align: left; /* Alinea el texto a la izquierda */
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
 }
 
 header .submenu li {
@@ -126,7 +184,7 @@ header .submenu li {
 }
 
 header .submenu li a {
-    color: #var(--color-negro);
+    color: var(--color-negro);
     text-decoration: none;
     font-size: 1rem;
     padding: 0.3rem 0.5rem;
@@ -146,10 +204,136 @@ header .menu-item:hover .submenu {
     display: block;
 }
 
+/* Align logo and menu button */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+header .contact-btn:hover {
+    background-color: var(--color-violet);
+}
+
 /* Contenedor del menú */
 .navbar {
     position: relative;
     z-index: 10; /* Asegúrate de que el contenedor tenga posición relativa */
+}
+
+/* Mobile menu styles */
+.mobile-menu-button {
+    display: none;
+    background: var(--color-morado);
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    border-radius: 5px;
+}
+
+.mobile-navbar {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-blanco);
+    padding: 1rem;
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    width: 80%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.mobile-navbar.active {
+    display: flex;
+}
+
+.mobile-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu .menu-item {
+    margin: 0.5rem 0;
+}
+
+.mobile-menu .menu-item a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.mobile-menu .menu-item a:hover {
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
+    border-radius: 4px;
+}
+
+/* Ocultar imágenes móviles por defecto */
+.mobile-images {
+    display: none;
+}
+
+/* Adjust mobile menu button size and positioning */
+.mobile-menu-button {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background: var(--color-morado);
+    color: var(--color-blanco);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mobile-menu-button:hover {
+    background-color: var(--color-violet);
+}
+
+/* En dispositivos móviles, mostrar imágenes móviles y ocultar imágenes de escritorio */
+@media (max-width: 768px) {
+    .desktop-images {
+        display: none;
+    }
+
+    .mobile-images {
+        display: block;
+    }
+}
+
+/* Only show the mobile menu button on small screens */
+@media (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+    
+    .navbar {
+        display: none;
+    }
+}
+
+/* Mostrar imágenes de escritorio por defecto */
+.desktop-images {
+    display: block;
+}
+
+/* Center the contact button below */
+.contact-btn {
+    display: block;
+    margin: 1rem auto;
 }
 
 /* Estilo para el menú desplegable */
@@ -167,8 +351,14 @@ header .menu-item:hover .submenu {
 }
 
 /* Botón de contacto */
+.contact-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
 
-header .contact-btn {
+.contact-btn {
     background-color: var(--color-morado);
     color: var(--color-blanco);
     padding: 0.5rem 1rem;
@@ -180,105 +370,11 @@ header .contact-btn {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-left: 1rem;
 }
 
-header .contact-btn:hover {
+.contact-btn:hover {
     background-color: var(--color-violet);
 }
-
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 2.5rem;
-    color: var(--color-morado);
-}
-
-.menu {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-item {
-    margin: 0 0.5rem;
-}
-
-/* Ocultar botón y submenu por defecto */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-.submenu {
-    display: none;
-}
-
-/* Estilo para móviles */
-@media (max-width: 768px) {
-    .menu {
-        display: none; /* Ocultar menú en móviles */
-        flex-direction: column;
-        width: 100%;
-        background: var(--color-blanco);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-        z-index: 100;
-    }
-
-    .menu-item {
-        margin: 1rem 0;
-    }
-
-    .menu-toggle {
-        display: block; /* Mostrar botón en móviles */
-    }
-
-    .menu.show {
-        display: flex; /* Mostrar menú al activar */
-    }
-}
-
-/* Media Queries para ajustar el diseño en pantallas pequeñas 
-@media (max-width: 1024px) {
-    header {
-        flex-direction: column; /* Reorganiza el header en columnas 
-        align-items: flex-start;
-    }
-
-    header .menu {
-        justify-content: flex-start; /* Alinea el menú a la izquierda 
-    }
-
-    header .logo {
-        margin-bottom: 1rem; /* Espacio entre el logo y el menú 
-    }
-
-    header .contact-btn {
-        margin-top: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    header .logo {
-        font-size: 1.5rem; /* Reduce el tamaño del logo en pantallas muy pequeñas 
-    }
-
-    header .menu-item a {
-        font-size: 0.9rem; /* Ajusta el tamaño de las pestañas 
-    }
-
-    header .contact-btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-}*/
 
 /* Contenedor principal del carrusel */
 .carousel-container {
@@ -363,51 +459,33 @@ header .contact-btn:hover {
     z-index: 11; /* Asegura que el texto esté por encima del fondo */
 }
 
-/*
-Hero Section 
-.hero {
-    position: relative;
-    height: 100vh;
-    background-image: url('images/index-images/baja-car.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #var(--color-negro);
-    text-align: center;
-    z-index: 1;
+/* Ocultar el carrusel en móviles */
+.carousel-wrapper {
+    display: block;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 1;
+.mobile-single-image {
+    display: none;
 }
 
-.hero-overlay {
-    position: relative;
-    z-index: 2;
-    color: var(--color-morado);
-    max-width: 80%;
-    padding: 20px;
+@media (max-width: 768px) {
+    .carousel-wrapper {
+        display: none;
+    }
+
+    .mobile-single-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .mobile-single-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
 }
-
-
-.hero-overlay h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    font-weight: bold;
-    color: var(--color-blanco);
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-    /*margin-bottom: 1.5rem;
-}*/
 
 .hero-button {
     display: inline-block;
@@ -493,7 +571,7 @@ Hero Section
     background-size: cover;
     background-position: center;
     position: relative;
-    color: #var(--color-negro);
+    color: var(--color-negro);
     text-align: center;
 }
 
@@ -544,6 +622,59 @@ Hero Section
     color: var(--color-blanco);
 }
 
+/* Carousel overlay adjustments */
+.carousel-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-text-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-blanco);
+    margin-bottom: 1rem;
+}
+
+.carousel-text-container p {
+    font-size: 1.2rem;
+    color: var(--color-blanco);
+    margin-bottom: 1.5rem;
+}
+
+/* Adjust logo and menu button alignment */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Ensure proper alignment for the mobile menu */
+.mobile-navbar {
+    margin-top: 1rem;
+}
+
+/* Align logo and menu button vertically */
+.logo-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Adjust the header container for better overall alignment */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
 
 /* Footer */
 footer {

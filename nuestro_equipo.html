@@ -10,6 +10,37 @@
 
 <!-- Header Section -->
 <header>
+
+    <button class="mobile-menu-button" onclick="toggleMobileMenu()">☰</button>
+    <nav class="mobile-navbar">
+        <ul class="mobile-menu">
+            <li class="menu-item">
+                <a href="index.html">Inicio</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" onclick="toggleSubmenu('submenu-sobre-nosotros')">Sobre nosotros</a>
+                <ul id="submenu-sobre-nosotros" class="submenu">
+                    <li><a href="nuestra_esencia.html">Nuestra esencia</a></li>
+                    <li><a href="nuestro_equipo.html">Nuestro equipo</a></li>
+                </ul>
+            </li>
+            
+            <li class="menu-item">
+                <a href="detalles_proyecto.html">Detalles del Proyecto</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" onclick="toggleSubmenu('submenu-inversion-y-apoyo')">Inversión y Apoyo</a>
+                <ul id="submenu-inversion-y-apoyo" class="submenu">
+                    <li><a href="oportunidades_financiamiento.html">Sponsors</a></li>
+                    <li><a href="plan_gastos.html">Plan de Gastos e Incentivos</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="innovacion_sostenible.html">Innovación Sostenible</a>
+            </li>
+        </ul>
+    </nav>
+
     <div class="logo">
         <img src="images/index-images/logo_white.png" alt="Team Logo" class="team-logo">
         NazKart
@@ -21,8 +52,8 @@
                 <a href="index.html">Inicio</a>
             </li>
             <li class="menu-item">
-                <a href="">Sobre nosotros</a>
-                <ul class="submenu">
+                <a href="#" onclick="toggleSubmenu('submenu-sobre-nosotros')">Sobre nosotros</a>
+                <ul id="submenu-sobre-nosotros" class="submenu">
                     <li><a href="nuestra_esencia.html">Nuestra esencia</a></li>
                     <li><a href="nuestro_equipo.html">Nuestro equipo</a></li>
                 </ul>
@@ -31,8 +62,8 @@
                 <a href="detalles_proyecto.html">Detalles del Proyecto</a>
             </li>
             <li class="menu-item">
-                <a href="">Inversión y Apoyo</a>
-                <ul class="submenu">
+                <a href="#" onclick="toggleSubmenu('submenu-inversion-y-apoyo')">Inversión y Apoyo</a>
+                <ul id="submenu-inversion-y-apoyo" class="submenu">
                     <li><a href="oportunidades_financiamiento.html">Sponsors</a></li>
                     <li><a href="plan_gastos.html">Plan de Gastos e Incentivos</a></li>
                 </ul>
@@ -42,7 +73,7 @@
             </li>
         </ul>
     </nav>
-
+    
     <button class="contact-btn" onclick="window.location.href='contacto.html'">Contacto</button>
 </header>
 

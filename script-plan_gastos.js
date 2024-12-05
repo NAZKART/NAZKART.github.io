@@ -22,3 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fadeElements.forEach(el => observer.observe(el));
 });
+
+function toggleMobileMenu() {
+    const menu = document.querySelector('.mobile-navbar');
+    menu.classList.toggle('active');
+  }
+  function toggleSubmenu(id) {
+    const submenu = document.getElementById(id);
+    if (submenu.style.display === "block") {
+        submenu.style.display = "none"; // Oculta el submenú
+    } else {
+        submenu.style.display = "block"; // Muestra el submenú
+    }
+  }

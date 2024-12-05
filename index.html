@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - NazKart</title>
-    <link rel="stylesheet" href="styles.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Nuestra esencia - NazKart</title>
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
+    
 <!-- Header Section -->
 <header>
-    <div class="logo">
-        <img src="images/index-images/logo_white.png" alt="Team Logo" class="team-logo">
-        NazKart
-    </div>
 
-    <!-- Botón para menú móvil -->
-    <button id="menu-toggle" class="menu-toggle">☰</button>
-
-    <nav class="navbar">
-        <ul id="menu" class="menu">
+    <button class="mobile-menu-button" onclick="toggleMobileMenu()">☰</button>
+    <nav class="mobile-navbar">
+        <ul class="mobile-menu">
             <li class="menu-item">
                 <a href="index.html">Inicio</a>
             </li>
             <li class="menu-item">
-                <a href="#">Sobre nosotros</a>
-                <ul class="submenu">
+                <a href="#" onclick="toggleSubmenu('submenu-sobre-nosotros')">Sobre nosotros</a>
+                <ul id="submenu-sobre-nosotros" class="submenu">
                     <li><a href="nuestra_esencia.html">Nuestra esencia</a></li>
                     <li><a href="nuestro_equipo.html">Nuestro equipo</a></li>
                 </ul>
             </li>
+            
             <li class="menu-item">
                 <a href="detalles_proyecto.html">Detalles del Proyecto</a>
             </li>
             <li class="menu-item">
-                <a href="#">Inversión y Apoyo</a>
-                <ul class="submenu">
+                <a href="#" onclick="toggleSubmenu('submenu-inversion-y-apoyo')">Inversión y Apoyo</a>
+                <ul id="submenu-inversion-y-apoyo" class="submenu">
                     <li><a href="oportunidades_financiamiento.html">Sponsors</a></li>
                     <li><a href="plan_gastos.html">Plan de Gastos e Incentivos</a></li>
                 </ul>
@@ -46,15 +41,47 @@
         </ul>
     </nav>
 
+    <div class="logo">
+        <img src="images/index-images/logo_white.png" alt="Team Logo" class="team-logo">
+        NazKart
+    </div>
+
+    <nav class="navbar">
+        <ul class="menu">
+            <li class="menu-item">
+                <a href="index.html">Inicio</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" onclick="toggleSubmenu('submenu-sobre-nosotros')">Sobre nosotros</a>
+                <ul id="submenu-sobre-nosotros" class="submenu">
+                    <li><a href="nuestra_esencia.html">Nuestra esencia</a></li>
+                    <li><a href="nuestro_equipo.html">Nuestro equipo</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="detalles_proyecto.html">Detalles del Proyecto</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" onclick="toggleSubmenu('submenu-inversion-y-apoyo')">Inversión y Apoyo</a>
+                <ul id="submenu-inversion-y-apoyo" class="submenu">
+                    <li><a href="oportunidades_financiamiento.html">Sponsors</a></li>
+                    <li><a href="plan_gastos.html">Plan de Gastos e Incentivos</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="innovacion_sostenible.html">Innovación Sostenible</a>
+            </li>
+        </ul>
+    </nav>
+    
     <button class="contact-btn" onclick="window.location.href='contacto.html'">Contacto</button>
 </header>
+    
 
-
-<!-- Carrusel Section -->
-<section class="carousel-container">
-    <!-- Carrusel de imágenes -->
-    <div class="carousel">
-        <div class="carousel-wrapper">
+    <!-- Carrusel Section -->
+    <section class="carousel-container">
+        <!-- Carrusel de imágenes para escritorio -->
+        <div class="carousel-wrapper desktop-images">
             <div class="carousel-slide">
                 <img src="images/index-images/grouped-image-1.jpg" alt="Equipo trabajando">
             </div>
@@ -65,71 +92,40 @@
                 <img src="images/index-images/grouped-image-fondo-2.jpg" alt="Competencia BAJA SAE">
             </div>
         </div>
-    </div>
+        <!-- Imagen para móvil -->
+        <div class="mobile-single-image">
+            <img src="images/index-images/mobile-image-1.jpg">
+        </div>        
+        <!-- Texto y botón fijo encima -->
+        <div class="carousel-overlay">
+            <h1>Impulsados por la pasión y la innovación, construimos el futuro de la ingeniería, una pieza a la vez</h1>
+            <a href="nuestra_esencia.html" class="hero-button">Conoce más sobre nosotros</a>
+        </div>
+    </section>
+    
 
-    <!-- Texto y botón fijo encima -->
-    <div class="carousel-overlay">
-        <h1>Impulsados por la pasión y la innovación, construimos el futuro de la ingeniería, una pieza a la vez</h1>
-        <a href="nuestra_esencia.html" class="hero-button">Conoce más sobre nosotros</a>
-    </div>
-</section>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 NazKart</p>
+        <p>Connect with us on social media</p>
+        <div class="social-links">
+            <!-- Social media icons -->
+        </div>
+    </footer>
 
-<!-- Hero Section 
-<section class="hero">
-    <div class="hero-overlay">
-        <h1>Impulsados por la pasión y la innovación, construimos el futuro de la ingeniería, una pieza a la vez</h1>
-        <br>
-        <a href="nuestra_esencia.html" class="hero-button">Conoce más sobre nosotros</a>
-    </div>
-</section>
--->
-
-<!-- Nueva Sección de 6 Bloques 
-<section class="six-block-section" style="background-image: url('images/index-images/grouped-image-fondo-3.jpg');">
-    <div class="six-block-content">
-        <div class="block">
-            <img src="images/index-images/image1.jpg" alt="[Imagen 1]">
-            <h3>[Titulo 1]</h3>
-            <p>[Descripción 1]</p>
-        </div>
-        <div class="block">
-            <img src="images/index-images/image2.jpg" alt="[Imagen 2]">
-            <h3>[Titulo 2]</h3>
-            <p>[Descripción 2]</p>
-        </div>
-        <div class="block">
-            <img src="images/index-images/image3.jpg" alt="[Imagen 3]">
-            <h3>[Titulo 3]</h3>
-            <p>[Descripción 3]</p>
-        </div>
-        <div class="block">
-            <img src="images/index-images/image4.jpg" alt="[Imagen 4]">
-            <h3>[Titulo 4]</h3>
-            <p>[Descripción 4]</p>
-        </div>
-        <div class="block">
-            <img src="images/index-images/image5.jpg" alt="[Imagen 5]">
-            <h3>[Titulo 5]</h3>
-            <p>[Descripción 5]</p>
-        </div>
-        <div class="block">
-            <img src="images/index-images/image6.jpg" alt="[Imagen 6]">
-            <h3>[Titulo 6]</h3>
-            <p>[Descripción 6]</p>
-        </div>
-    </div>
-</section>
--->
-
-<!-- Footer Section -->
-<footer>
-    <p>&copy; 2024 NazKart</p>
-    <p>Connect with us on social media</p>
-    <div class="social-links">
-        <!-- Social media icons -->
-    </div>
-</footer>
-
-<script src="script.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.mobile-navbar');
+            menu.classList.toggle('active');
+        }
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            if (submenu.style.display === "block") {
+                submenu.style.display = "none"; // Oculta el submenú
+            } else {
+                submenu.style.display = "block"; // Muestra el submenú
+            }
+        }
+    </script>
 </body>
 </html>

@@ -10,6 +10,37 @@
 
 <!-- Header Section -->
 <header>
+
+    <button class="mobile-menu-button" onclick="toggleMobileMenu()">☰</button>
+    <nav class="mobile-navbar">
+        <ul class="mobile-menu">
+            <li class="menu-item">
+                <a href="index.html">Inicio</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" onclick="toggleSubmenu('submenu-sobre-nosotros')">Sobre nosotros</a>
+                <ul id="submenu-sobre-nosotros" class="submenu">
+                    <li><a href="nuestra_esencia.html">Nuestra esencia</a></li>
+                    <li><a href="nuestro_equipo.html">Nuestro equipo</a></li>
+                </ul>
+            </li>
+            
+            <li class="menu-item">
+                <a href="detalles_proyecto.html">Detalles del Proyecto</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" onclick="toggleSubmenu('submenu-inversion-y-apoyo')">Inversión y Apoyo</a>
+                <ul id="submenu-inversion-y-apoyo" class="submenu">
+                    <li><a href="oportunidades_financiamiento.html">Sponsors</a></li>
+                    <li><a href="plan_gastos.html">Plan de Gastos e Incentivos</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="innovacion_sostenible.html">Innovación Sostenible</a>
+            </li>
+        </ul>
+    </nav>
+
     <div class="logo">
         <img src="images/index-images/logo_white.png" alt="Team Logo" class="team-logo">
         NazKart
@@ -21,8 +52,8 @@
                 <a href="index.html">Inicio</a>
             </li>
             <li class="menu-item">
-                <a href="">Sobre nosotros</a>
-                <ul class="submenu">
+                <a href="#" onclick="toggleSubmenu('submenu-sobre-nosotros')">Sobre nosotros</a>
+                <ul id="submenu-sobre-nosotros" class="submenu">
                     <li><a href="nuestra_esencia.html">Nuestra esencia</a></li>
                     <li><a href="nuestro_equipo.html">Nuestro equipo</a></li>
                 </ul>
@@ -31,8 +62,8 @@
                 <a href="detalles_proyecto.html">Detalles del Proyecto</a>
             </li>
             <li class="menu-item">
-                <a href="">Inversión y Apoyo</a>
-                <ul class="submenu">
+                <a href="#" onclick="toggleSubmenu('submenu-inversion-y-apoyo')">Inversión y Apoyo</a>
+                <ul id="submenu-inversion-y-apoyo" class="submenu">
                     <li><a href="oportunidades_financiamiento.html">Sponsors</a></li>
                     <li><a href="plan_gastos.html">Plan de Gastos e Incentivos</a></li>
                 </ul>
@@ -42,7 +73,7 @@
             </li>
         </ul>
     </nav>
-
+    
     <button class="contact-btn" onclick="window.location.href='contacto.html'">Contacto</button>
 </header>
 
@@ -71,43 +102,19 @@
 
 <!-- Segunda sección (Imagen a la izquierda, Texto a la derecha) -->
 <section class="baja-sae-section">
-    <div class="baja-sae-content reverse">
+    <div class="baja-sae-content">
         <div class="baja-sae-image fade-in" data-order="2">
             <img src="images/index-images/grouped-image-2.jpg" alt="Imagen de Agrupación Baja SAE">
         </div>
         <div class="baja-sae-text fade-in" data-order="1">
-            <h2>¿Cuáles son las principales innovaciones en el próximo año?</h2>
-            <p>
-                El próximo año, el Proyecto BAJA SAE presenta una serie de innovaciones, tanto en términos de diseño como en la implementación de nuevas tecnologías. Entre las principales innovaciones destacan:
-            </p>
+            <h2>¿Cómo está planificado el desarrollo del proyecto?</h2>
             <ul>
-                <li>La incorporación de un sistema de suspensión ajustable que permite adaptarse a diferentes tipos de terreno.</li>
-                <li>El uso de materiales más ligeros y resistentes para el chasis, lo que mejora el rendimiento sin comprometer la seguridad.</li>
-                <li>Integración de telemetría para monitorear el desempeño del vehículo durante las pruebas y la competición.</li>
-                <li>Estas mejoras buscan optimizar la eficiencia y resistencia del vehículo, dándole al equipo una ventaja competitiva.</li>
+                <li>El Equipo de Frenos selecciona y evalúa componentes, diseña el sistema hidráulico usando software CAD y ajusta la presión y respuesta del pedal en pruebas. Colabora con el equipo de suspensión y realiza pruebas térmicas para evaluar la disipación de calor.</li>
+                <li>El Equipo Electrónico y Control diseña el diagrama eléctrico, desarrolla un sistema de telemetría, integra sensores con el sistema CAN y configura la comunicación entre módulos electrónicos.</li>
+                <li>El Equipo de Chasis y Estructuras diseña el chasis, realiza simulaciones de resistencia, selecciona materiales y asegura la comodidad y seguridad del piloto, verificando la integración de componentes y realizando pruebas de resistencia.</li>
+                <li>El Equipo de Suspensión y Dirección diseña el sistema de suspensión, el sistema de dirección y realiza simulaciones y pruebas de estabilidad en pista.</li>
+                <li>El Equipo de Motor selecciona el motor adecuado, diseña el tren motriz, la transmisión y el sistema de refrigeración para mantener temperaturas óptimas.</li>
             </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Tercera sección (Texto a la izquierda, Imagen a la derecha) -->
-<section class="baja-sae-section">
-    <div class="baja-sae-content">
-        <div class="baja-sae-text fade-in" data-order="1">
-            <h2>¿Cuáles son las especificaciones técnicas del vehículo?</h2>
-            <p>
-                El vehículo BAJA SAE del próximo año se caracteriza por su diseño robusto y alto rendimiento. Las principales especificaciones incluyen:
-            </p>
-            <ul>
-                <li>Motor: 10 HP, motor de 4 tiempos, capaz de alcanzar hasta 65 km/h.</li>
-                <li>Chasis: Estructura de acero tubular, con un diseño modular que facilita la reparación y modificación.</li>
-                <li>Suspensión: Suspensión independiente en las cuatro ruedas, con un recorrido de 25 cm para asegurar estabilidad en terrenos irregulares.</li>
-                <li>Frenos: Sistema de frenos hidráulicos en las cuatro ruedas.</li>
-                <li>Neumáticos: Neumáticos de 22 pulgadas con alta tracción, ideales para superar obstáculos en terrenos rocosos y lodosos.</li>
-            </ul>
-        </div>
-        <div class="baja-sae-image fade-in" data-order="2">
-            <img src="images/index-images/grouped-image-1.jpg" alt="Imagen de Baja SAE">
         </div>
     </div>
 </section>
@@ -119,12 +126,13 @@
             <img src="images/index-images/grouped-image-2.jpg" alt="Imagen de Agrupación Baja SAE">
         </div>
         <div class="baja-sae-text fade-in" data-order="1">
-            <h2>¿Cómo está planificado el desarrollo del proyecto?</h2>
+            <h2>¿Cuáles son los sistemas más importantes del vehículo?</h2>
             <ul>
-                <li>Fase de diseño (Mes 1 - 3): Durante esta fase, se realiza el diseño conceptual del vehículo, se seleccionan los componentes principales y se prepara el plan de fabricación.</li>
-                <li>Fase de fabricación (Mes 4 - 7): Se fabrican los componentes del vehículo, se realiza el ensamblaje del chasis y los sistemas principales.</li>
-                <li>Fase de pruebas (Mes 8): El vehículo pasa por pruebas rigurosas en condiciones controladas y en terrenos naturales.</li>
-                <li>Fase de ajuste y competencia (Mes 9): Se realizan ajustes finales basados en los resultados de las pruebas, y el vehículo se prepara para competir en el evento BAJA SAE.</li>
+                <li>Chasis: Proporciona estructura y seguridad, diseñado para resistir condiciones extremas.</li>
+                <li>Suspensión y dirección: Garantizan estabilidad y maniobrabilidad en terrenos difíciles.</li>
+                <li>Powertrain: Sistema de transmisión y motor que maximizan la eficiencia y la potencia.</li>
+                <li>Sistema de frenos: Proporciona seguridad con una frenada precisa y confiable.</li>
+                <li>Sistema electrónico: Integra sensores y monitoreo para optimizar el rendimiento del vehículo</li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,569 @@
+/* Definir variables para los colores */
+:root {
+    --color-morado: #6a1b9a;  /* Morado intenso */
+    --color-violet: #8e44ad;  /* Violeta vibrante */
+    --color-negro: #1c1c1c;  /* Negro suave */
+    --color-blanco: #f9f9f9; /* Blanco cálido */
+    --color-texto: #2c2c2c;  /* Texto gris oscuro */
+}
+
+/* Reset y box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+@font-face {
+  font-family: 'RACING HARD';
+  src: url('./fonts/RACING HARD.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--color-texto);
+    background-color: #e6e6e6;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between; /* Asegura que el logo y el menú estén bien distribuidos */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se reorganicen si no hay suficiente espacio */
+    padding: 1rem 2rem;
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+}
+
+/* Logo */
+header .logo {
+    display: flex;
+    align-items: center;
+    font-family: 'RACING HARD', sans-serif; /* Fuente elegante */
+    font-weight: 700; /* Para darle fuerza al texto */
+    color: var(--color-morado); /* Mantén el color del diseño */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Todo en mayúsculas */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-right: 1rem;
+    font-size: 2.5rem; /* Ajusta el tamaño aquí */
+}
+
+/* Logo (icono o imagen) */
+header .logo .team-logo {
+    width: 100px;
+    height: auto;
+    margin-right: 0.5rem;
+}
+
+
+/* Menú y Subpestañas */
+header .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    list-style: none; /* Eliminar viñetas */
+    padding: 0;       /* Eliminar el espacio interno */
+    margin: 0;        /* Eliminar el espacio externo */
+}
+
+header .menu-item {
+    position: relative;
+    margin: 0 0.5rem;
+}
+
+
+/* Menú principal */
+header .menu-item a {
+    color: var(--color-morado);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1px;
+    padding: 0.3rem 0.5rem;   /* Mantén un padding consistente */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box; /* Mantiene el tamaño al agregar bordes */
+}
+
+/* Estilo al pasar el ratón */
+header .menu-item a:hover {
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
+    padding: 0.5rem 1rem;   /* En lugar de aumentar el padding */
+    border-radius: 4px;
+    outline: 2px solid var(--color-morado); /* En lugar de usar border */
+    outline-offset: -2px; /* Se ajusta para evitar un cambio visual excesivo */
+}
+
+/* Subpestañas (submenu) */
+header .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); /* Ajusta para que el centro del submenu se alinee con el centro del menu-item */
+    width: 100%;
+    background-color: var(--color-blanco);
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    list-style: none; /* Eliminar viñetas */
+    margin: 0; /* Eliminar margen */
+    text-align: center; /* Centrar texto */
+}
+
+header .submenu li {
+    margin: 0.5rem 0;
+}
+
+header .submenu li a {
+    color: #var(--color-negro);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+header .submenu li a:hover {
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
+    border-radius: 4px;
+}
+
+
+/* Mostrar subpestañas al pasar el ratón */
+header .menu-item:hover .submenu {
+    display: block;
+}
+
+/* Contenedor del menú */
+.navbar {
+    position: relative;
+    z-index: 10; /* Asegúrate de que el contenedor tenga posición relativa */
+}
+
+/* Estilo para el menú desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999; /* Asegúrate de que esté por encima de la imagen */
+    display: none;
+}
+
+/* Mostrar subpestañas al pasar el ratón */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+/* Botón de contacto */
+
+header .contact-btn {
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 1rem;
+}
+
+header .contact-btn:hover {
+    background-color: var(--color-violet);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    color: var(--color-morado);
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    margin: 0 0.5rem;
+}
+
+/* Ocultar botón y submenu por defecto */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.submenu {
+    display: none;
+}
+
+/* Estilo para móviles */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Ocultar menú en móviles */
+        flex-direction: column;
+        width: 100%;
+        background: var(--color-blanco);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+    }
+
+    .menu-item {
+        margin: 1rem 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostrar botón en móviles */
+    }
+
+    .menu.show {
+        display: flex; /* Mostrar menú al activar */
+    }
+}
+
+/* Media Queries para ajustar el diseño en pantallas pequeñas 
+@media (max-width: 1024px) {
+    header {
+        flex-direction: column; /* Reorganiza el header en columnas 
+        align-items: flex-start;
+    }
+
+    header .menu {
+        justify-content: flex-start; /* Alinea el menú a la izquierda 
+    }
+
+    header .logo {
+        margin-bottom: 1rem; /* Espacio entre el logo y el menú 
+    }
+
+    header .contact-btn {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo {
+        font-size: 1.5rem; /* Reduce el tamaño del logo en pantallas muy pequeñas 
+    }
+
+    header .menu-item a {
+        font-size: 0.9rem; /* Ajusta el tamaño de las pestañas 
+    }
+
+    header .contact-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}*/
+
+/* Contenedor principal del carrusel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ajusta la altura según necesites */
+    overflow: hidden;
+}
+
+/* Carrusel de imágenes */
+.carousel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-wrapper {
+    display: flex;
+    width: 100%; /* Modifica esto para el zoom de las imágenes */
+    animation: slide 9s infinite;
+}
+
+.carousel-slide {
+    width: 100%;
+    height: auto; /* Mantiene la proporción original de las imágenes */
+    display: flex;
+    object-fit: cover; /* Ajusta cómo se recorta la imagen para llenar el contenedor */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para las imágenes del carrusel */
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cambié de cover a contain para asegurar que toda la imagen se vea */
+    object-position: center; /* Centra la imagen si hay espacio sobrante */
+}
+
+/* Animación de deslizamiento del carrusel */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    33.33% {
+        transform: translateX(-100%);
+    }
+    66.66% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Capa fija encima de las imágenes del carrusel */
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4); /* Oscurece ligeramente el fondo */
+    padding: 20px;
+}
+
+/* Estilo del título */
+.carousel-overlay h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    z-index: 11; /* Asegura que el texto esté por encima del fondo */
+}
+
+/*
+Hero Section 
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('images/index-images/baja-car.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #var(--color-negro);
+    text-align: center;
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    color: var(--color-morado);
+    max-width: 80%;
+    padding: 20px;
+}
+
+
+.hero-overlay h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    font-weight: bold;
+    color: var(--color-blanco);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    /*margin-bottom: 1.5rem;
+}*/
+
+.hero-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
+    font-size: 1.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-button:hover {
+    background-color: var(--color-violet);
+}
+
+/* Baja SAE Section */
+.baja-sae-section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #var(--color-negro);
+}
+
+.baja-sae-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.baja-sae-content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Inversión de contenido para la segunda sección */
+.baja-sae-content.reverse {
+    flex-direction: row;
+}
+
+.baja-sae-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.baja-sae-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-morado);
+}
+
+.baja-sae-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.baja-sae-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+/* Sección de 6 Bloques */
+.six-block-section {
+    padding: 4rem 2rem;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #var(--color-negro);
+    text-align: center;
+}
+
+.six-block-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.six-block-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.block {
+    background-color: var(--color-morado);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.block img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.block h3 {
+    font-size: 1.5rem;
+    color: var(--color-violet);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.block p {
+    font-size: 1rem;
+    color: var(--color-blanco);
+}
+
+
+/* Footer */
+footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--color-morado);
+    color: var(--color-blanco);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer .social-links {
+    margin-top: 0.5rem;
+    color: var(--color-blanco);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: transform 0.3s;
+}
+
+footer .social-links a:hover {
+    transform: scale(1.2);
+}
